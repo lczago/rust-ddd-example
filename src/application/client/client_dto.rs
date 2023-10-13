@@ -1,4 +1,4 @@
-use crate::domain::entities::Client;
+use crate::domain::client::client_entity::Client;
 
 #[readonly::make]
 #[derive(Debug, PartialEq, Eq)]
@@ -23,8 +23,8 @@ pub struct DtoList<T>(pub Vec<T>);
 
 #[cfg(test)]
 mod test {
-    use crate::application::dtos::ClientDto;
-    use crate::domain::entities::Client;
+    use crate::application::client::client_dto::ClientDto;
+    use crate::domain::client::client_entity::Client;
 
     #[test]
     fn create_client_dto_from_entity() {

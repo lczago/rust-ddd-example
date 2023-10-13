@@ -1,10 +1,11 @@
-use crate::application::dtos::{ClientDto, DtoList};
-use crate::application::requests::{
+use std::rc::Rc;
+
+use crate::application::client::client_dto::{ClientDto, DtoList};
+use crate::application::client::client_request::{
     CreateClientUseCaseRequest, EditClientUseCaseRequest, GetClientUseCaseRequest,
 };
-use crate::domain::entities::Client;
-use crate::domain::repositories::ClientRepository;
-use std::rc::Rc;
+use crate::domain::client::client_entity::Client;
+use crate::domain::client::client_gateway::ClientRepository;
 
 // -------------------------------------------------------------------------------------------------
 
@@ -94,20 +95,18 @@ impl EditClientUseCaseHandler {
 
 #[cfg(test)]
 mod test {
-    use crate::application::dtos::ClientDto;
-    use crate::application::handlers::EditClientUseCaseHandler;
-    use crate::application::requests::EditClientUseCaseRequest;
-    use crate::domain::entities::Client;
-    use crate::domain::repositories::MockClientRepository;
-    use crate::{
-        CreateClientUseCaseHandler, CreateClientUseCaseRequest, GetAllClientsUseCaseHandler,
-        GetClientUseCaseHandler, GetClientUseCaseRequest,
-    };
+    use std::rc::Rc;
+
+    use fake::{Fake, Faker};
     use fake::faker::address::en::CityName;
     use fake::faker::lorem::en::Sentence;
     use fake::faker::name::en::Name;
-    use fake::{Fake, Faker};
-    use std::rc::Rc;
+
+    use crate::application::client::client_dto::ClientDto;
+    use crate::application::client::client_handler::*;
+    use crate::application::client::client_request::EditClientUseCaseRequest;
+    use crate::domain::client::client_entity::Client;
+    use crate::domain::client::client_gateway::MockClientRepository;
 
     #[test]
     fn create_client_use_case_handler_execute() {

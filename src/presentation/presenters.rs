@@ -1,4 +1,4 @@
-use crate::application::dtos::{ClientDto, DtoList};
+use crate::application::client::client_dto::{ClientDto, DtoList};
 use std::fmt::{Display, Formatter};
 
 impl Display for ClientDto {
@@ -31,8 +31,8 @@ impl Display for DtoList<ClientDto> {
 
 #[cfg(test)]
 mod test {
-    use crate::application::dtos::{ClientDto, DtoList};
-    use crate::domain::entities::Client;
+    use crate::application::client::client_dto::{ClientDto, DtoList};
+    use crate::domain::client::client_entity::Client;
     use fake::{Fake, Faker};
 
     #[test]

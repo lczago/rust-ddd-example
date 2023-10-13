@@ -1,15 +1,17 @@
 extern crate core;
 extern crate proc_macro;
 
-use crate::application::handlers::EditClientUseCaseHandler;
-use crate::application::requests::EditClientUseCaseRequest;
-use crate::presentation::prompt::{ask_question, menu};
-use application::handlers::{
+use std::rc::Rc;
+
+use application::client::client_handler::{
     CreateClientUseCaseHandler, GetAllClientsUseCaseHandler, GetClientUseCaseHandler,
 };
-use application::requests::{CreateClientUseCaseRequest, GetClientUseCaseRequest};
-use infrastructure::domain::repositories::InMemoryClientRepository;
-use std::rc::Rc;
+use application::client::client_request::{CreateClientUseCaseRequest, GetClientUseCaseRequest};
+use infrastructure::client::client_persistence::InMemoryClientRepository;
+
+use crate::application::client::client_handler::EditClientUseCaseHandler;
+use crate::application::client::client_request::EditClientUseCaseRequest;
+use crate::presentation::prompt::{ask_question, menu};
 
 mod application;
 mod domain;

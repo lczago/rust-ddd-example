@@ -1,5 +1,5 @@
-use crate::domain::entities::Client;
-use crate::domain::repositories::ClientRepository;
+use crate::domain::client::client_entity::Client;
+use crate::domain::client::client_gateway::ClientRepository;
 use std::cell::RefCell;
 use std::collections::HashMap;
 

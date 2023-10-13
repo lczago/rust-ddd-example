@@ -1,4 +1,4 @@
-use crate::domain::entities::Client;
+use crate::domain::client::client_entity::Client;
 use mockall::predicate::*;
 use mockall::*;
 
